@@ -1,0 +1,289 @@
+/*
+  Theme Name: Inkdrop
+  Author: rama.bearblog.dev
+  Version: 1.0
+  License: MIT
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Shippori+Antique&display=swap');
+
+:root {
+  --width: 987px;
+  --font-main: "Shippori Antique", sans-serif;
+  --font-secondary: "Manrope", sans-serif;
+  --font-scale: 1rem;
+  --space-1: 0.7rem;
+  --space-2: 1.44rem;
+  --space-3: 2.33rem;
+  --space-4: 3.77rem;
+  --gap: 6rem;
+  --radius: 0.55rem;
+  --background-color: #ffffff;
+  --background-secondary: rgb(249, 249, 249);
+  --blockquote-background: rgba(0, 95, 204, 0.08);
+  --heading-color: #1a1a1a;
+  --text-color: #2c2c2c;
+  --link-color: #005fcc;
+  --blockquote-color: #444;
+  --code-background-color: #f3f3f3;
+  --code-color: #1a1a1a;
+  --line: 1px solid rgba(189, 189, 189, 0.8);
+  --header-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #000000;
+    --background-secondary: rgb(20, 20, 20);
+    --blockquote-background: rgba(0, 95, 204, 0.2);
+    --heading-color: #fff;
+    --text-color: #ddd;
+    --link-color: #4ea8ff;
+    --blockquote-color: #aaa;
+    --code-background-color: #1a1a1a;
+    --code-color: #f2f2f2;
+    --line: 1px solid rgba(100, 100, 100, 0.7);
+    --header-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-scale);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.75;
+  margin: 0 auto;
+  padding: var(--space-2);
+  max-width: var(--width);
+  animation: blurFadeIn 0.6s ease;
+}
+
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
+h1 {
+  font-size: 1.78rem;
+}
+
+h2 {
+  font-size: 1.23rem;
+}
+
+h3 {
+  font-size: 0.99rem;
+}
+
+h4, h5, h6 {
+  font-size: var(--font-scale);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  color: var(--heading-color);
+  margin-bottom: var(--space-1);
+  line-height: 1.2;
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+a:hover,
+a:active {
+  transform: translateY(2px);
+}
+
+
+header {
+  max-width: var(--width);
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--header-color);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2);
+  border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+main {
+  margin-top: var(--gap);
+  margin-bottom: var(--space-3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav p {
+  display: flex;
+  gap: var(--space-1);
+  font-size: 0.92rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+footer {
+  padding: var(--space-3) 0;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+
+.upvote-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.upvote-button:hover {
+  transform: scale(0.9);
+}
+
+.upvote-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+
+.upvote-button .upvote-count {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  background-color: var(--background-secondary);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius);
+  word-break: break-word;
+  border: 1px solid #005fcc14;
+  color: var(--code-color);
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre;
+  max-width: 100%;
+  padding: 0.7rem;
+  background-color: var(--background-secondary);
+  border-radius: var(--radius);
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border: 1px solid #005fcc14;
+}
+
+blockquote {
+  background-color: var(--blockquote-background);
+  border-left: 3px solid var(--link-color);
+  padding: 0.1rem 0 0.1rem var(--space-2);
+  margin: var(--space-3) 0;
+  font-style: italic;
+  color: var(--blockquote-color);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: var(--space-3) 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-3);
+  overflow-x: auto;
+  display: block;
+}
+
+thead {
+  background-color: var(--background-secondary);
+  font-weight: bold;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(136, 136, 136, 0.2);
+  vertical-align: top;
+}
+
+time {
+  color: rgba(145, 145, 145, 0.8);
+  font-style: normal;
+}
+
+
+.title h1 {
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+ul.blog-posts {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul.blog-posts li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-bottom: var(--space-2);
+  padding-bottom: 0.7rem;
+  gap: var(--space-1);
+  border-bottom: var(--line);
+}
+
+ul.blog-posts li span {
+  color: #666;
+  font-size: 0.82rem;
+}
+
+ul.blog-posts li a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: none;
+}
